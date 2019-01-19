@@ -5,7 +5,7 @@ title: Projects
 
 <h1>2017</h1>
 <p class="project">
-  <i class="fas fa-mountain break"></i>
+  <i class="fas fa-mountain"></i>
   Bedrock
   <p>
     Bedrock is a javascript BDD / TDD unit testing framework for Node.js. It comprises a CLI test runner/reporter,
@@ -23,7 +23,7 @@ title: Projects
 </p>
 
 <p class="project">
-  <i class="fas fa-broadcast-tower break"></i>
+  <i class="fas fa-broadcast-tower"></i>
   Blades in motion
   <p>
     Reverse engineers radio frequencies (RF) from a ceiling fan remote control using RTL-SDR (software defined radio),
@@ -44,7 +44,7 @@ title: Projects
 </p>
 
 <p class="project">
-  <i class="fas fa-cubes break"></i>
+  <i class="fas fa-cubes"></i>
   Bloc
   <p>
     Bloc is an isometric, multiplayer building game inspired by lego and Minecraft built by <a href="https://github.com/Sophie5">Sophie
@@ -66,7 +66,7 @@ title: Projects
 <h1>2016</h1>
 
 <p class="project">
-  <i class="fas fa-vote-yea break"></i>
+  <i class="fas fa-vote-yea"></i>
   Parliamental
   <p>
     A web app to analyse the House of Commons by party, country and gender using the UK Parliament members' API.
@@ -86,7 +86,7 @@ title: Projects
 </p>
 
 <p class="project">
-  <i class="fas fa-book break"></i>
+  <i class="fas fa-book"></i>
   Synonymouse
   <p>
     Artificially expand your vocabulary with Synonymouse, an online thesaurus. I use it everyday. Don't get carried
@@ -104,7 +104,7 @@ title: Projects
 </p>
 
 <p class="project">
-  <i class="fas fa-atom break"></i>
+  <i class="fas fa-atom"></i>
   Game of life
   <p>
     John Conway’s Game of Life. A cellular automaton with a simple set of rules which I thought would be a good
@@ -121,13 +121,10 @@ title: Projects
 </p>
 
 <p class="project">
-  <a href="http://crazycanary.netlify.com/" target="_blank">
-    <i class="fab fa-earlybirds break"></i>
-  </a>
+    <i class="fab fa-earlybirds"></i>
   Crazy Canary
   <p>
-    My attempt to create a game more annoying than the original Flappy Bird by Nguyễn Hà Đông. I challenge you to score
-    more than two.
+    My attempt to create a game more annoying than the original Flappy Bird by <a href="http://www.dotgears.com/" target="_blank">Nguyễn Hà Đông.</a> I challenge you to score more than two.
   </p>
   <p>
     <strong>Demo:</strong> <a href="http://crazycanary.netlify.com/" target="_blank">crazycanary.netlify.com</a>
@@ -142,7 +139,7 @@ title: Projects
 <h1>2015</h1>
 
 <p class="project">
-  <i class="fas fa-bullseye break"></i>
+  <i class="fas fa-bullseye"></i>
   Mallard Mania
   <p>
     A duck hunt style canvas game using the CreateJS library. The music is loud and annoying.
