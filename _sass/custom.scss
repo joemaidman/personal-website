@@ -1,0 +1,28 @@
+.social {
+  font-size: 2em;
+  text-align: center;
+}
+
+.project {
+  font-size: 2em;
+}
+
+a {
+  &.plain {
+    border-bottom: none;
+  }
+}
+
+ul,
+ol {
+
+  &.no-indent {
+    padding-left: 0;
+  }
+}
+
+i {
+  &.break {
+    display: block;
+  }
+}

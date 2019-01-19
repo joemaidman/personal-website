@@ -1,0 +1,58 @@
+# Site Info
+title:              "joemaidman"
+description:        "One-time financial analyst, now full stack software developer and graduate of Makers Academy."
+author_name:        "Joe Maidman" # change this to your name
+logo_url:           https://avatars3.githubusercontent.com/u/2493151?v=4 # Get it from GitHub API: https://api.github.com/users/<username>
+
+# Site Settings
+url:                http://www.joemaidman.com # main url
+permalink:          /:title # Post permalink
+timezone:           Europe/London # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+mathjax:            false  # enables support for mathjax - set to 'false' to disable
+
+# Site Build
+highlighter:        rouge
+markdown:           kramdown
+kramdown:
+    input:          GFM
+sass:
+    style:          :compressed
+
+# Other Params
+include:            [ "robots.txt" ]
+exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile", "script" ]
+plugins:
+  - jekyll-sitemap
+  - jekyll-font-awesome-sass
+  - jekyll-email-protect
+
+# Mapping for pages folder 
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+  posts:
+    output: true
+    permalink: /:path/
+
+# Enable font awesome 
+font-awesome:
+  assets: true
+
+# Theme settings 
+defaults:
+  -
+    scope:
+      path:         ""
+    values:
+      layout:       "null"
+  -
+    scope:
+      type:         "pages"
+    values:
+      layout:       "page"
+  -
+    scope:
+      type:         "posts"
+    values:
+      layout:       "post"

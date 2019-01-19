@@ -1,0 +1,13 @@
+<strong><div class="page-navigation code">
+	{% if page.url != '/index.html' and page.url != '/' %}
+		<a class="home" href="{{ "/" | prepend: site.baseurl | prepend: site.url }}" title="Back to Index">Blog</a>
+		<a class="home" href="/about" title="About"> - About</a>
+	{% else %}
+			<a class="home" href="/about" title="About"> About</a>
+	{% endif %}
+	</a>
+	<a class="home" href="https://github.com/joemaidman/CV/blob/master/README.md" title="CV" target="_blank"> - CV</a>
+	<a class="home" href="/projects" title="Projects"> - Projects</a>
+	<a class="home" href="/contact" title="Contact"> - Contact</a>
+</div>
+</strong>

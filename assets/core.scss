@@ -1,0 +1,10 @@
+---
+# Front matter comment to ensure Jekyll properly reads file.
+---
+
+@import 'main';
+@import 'syntax';
+@import 'custom';
+
+$fa-font-path: "fonts/font-awesome/";
+@import 'font-awesome';
