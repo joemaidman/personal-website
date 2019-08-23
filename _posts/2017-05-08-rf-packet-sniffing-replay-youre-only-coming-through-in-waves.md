@@ -1,7 +1,8 @@
 ---
-title: 'RF packet sniffing &#038; replay &#8211; You&#8217;re only coming through in waves'
+title: "RF packet sniffing &#038; replay &#8211; You&#8217;re only coming through in waves"
 date: 2017-05-08 12:04
 ---
+
 This post will explain how I went about sniffing, analysing and replaying the RF signals from a pair of remote operated ceiling fans operating on the 434Mhz frequency, as well as some of the science I learned along the way. In a world where we expect our data to be transferred securely encrypted, it may come as a surprise that so much is hiding in plain sight! While this example may seem trivial, suppose this were your doorbell or maybe your garage door or perhaps your wireless alarm system...
 
 <a href="https://github.com/joemaidman/blades-in-motion" target="_blank">Source code available on Github</a>
@@ -25,6 +26,7 @@ We will be using a cheap digital TV/Radio USB receiver dongle to receive signals
 <a name="part1"></a><strong>Part 1:</strong> Hardware &amp; software
 
 <strong>Hardware</strong>
+
 <ul class="no-indent">
 <li><strong>An RF controlled device as the target device. </strong>Any remote device using ASK to transmit data will do.</li>
 <li><strong>A <a href="http://www.ebay.co.uk/itm/like/322350334259?lpid=122&amp;chn=ps&amp;adgroupid=35352091421&amp;rlsatarget=pla-279351682698&amp;adtype=pla&amp;poi=&amp;googleloc=1007216&amp;device=c&amp;campaignid=738466455&amp;crdt=0" target="_blank">RTL-SDR TV dongle </a>to detect the RF signal(s) (c£4).</strong></li>
@@ -70,7 +72,7 @@ The biggest difference to note is that the ASK signal doesn't change <em>frequen
 
 <strong>Figure 4</strong> Retro lesson in AM/FM radio basics c1964
 
-<iframe width="420" height="315" src="https://www.youtube.com/embed/xn6lzrMJUDs" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/D65KXwfDs3s" frameborder="0" allowfullscreen></iframe>
 
 Figure 5 shows the radio frequency allocations for the UK, from<em> Very Low Frequency</em> (VLF) right up to<em> Extremely High Frequency</em> (EHF) around 300Ghz. Our remote is operating at 434Mhz, putting it in the Ultra High Frequency (UHF) band (circled in red).
 
@@ -118,7 +120,7 @@ Zooming in further to one of these signals shows us the individual bits being tr
 
 <a class="plain" href="assets/images/2017-05-08/3.png"><img src="assets/images/2017-05-08/3.png" alt="3" width="550" height="206" /></a>
 
-This screenshot reveals a signal of: 
+This screenshot reveals a signal of:
 
 <strong>[1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0] </strong>
 
@@ -130,7 +132,7 @@ Next, we will create a simple web page served over LAN via an Arduino Ethernet s
 
 We include the ethernet library file and define a constant of 38 for the array length representing the signals to transmit as well as two floating point numbers representing periods of time in microseconds. The first is the period to transmit each bit of data for. The second represents the interval between sending packets. We also define two integers,  a digital pin number (9) and the number of times to repeat each transmission (12). Four arrays are defined containing the 38-bit data packets to transmit. While the remote does have additional features, I have chosen just four signals due to storage constraints on the board and to avoid adding complexity with the additional of an SD card. Finally, we specify an IP address and port for the ethernet shield (192.168.1.177:80) to host our web server.
 
-~~~c++
+```c++
 //Libraries
 #include <SPI.h>
 #include <Ethernet.h>
@@ -150,11 +152,11 @@ IPAddress ip(192, 168, 1, 177);
 EthernetServer server(80);
 boolean reading = false;
 String readString = "";
-~~~
+```
 
 Our main setup function sets pin 9 on the board to an output pin and starts the HTTP server.
 
-~~~c++
+```c++
 void setup() {
  pinMode(rfPin, OUTPUT);
  Serial.begin(9600);
@@ -163,11 +165,11 @@ void setup() {
  Serial.print("Server is at IP: ");
  Serial.println(Ethernet.localIP());
 }
-~~~
+```
 
 The main loop of the sketch checks if a client to connected to the server and reads the client request. If the client requested the home page directly, we render an HTML page containing control buttons. If the request contains a '?' character, it means a button has been pressed and is interpreted as a trigger action. The request header is checked for a number between 1 and 4 to determine which action to take and the appropriate packet array is passed to the sendRF function for transmission.
 
-~~~c++
+```c++
 void loop() {
   EthernetClient client = server.available();
   if (client) {
@@ -238,11 +240,11 @@ void loop() {
     }
   }
 }
-~~~
+```
 
 Last but not least, we define a function to transmit the data packet which is passed as an argument. The function loops through each bit in the array and sets the digital output pin 9 high/low for the signal time and repeats the entire signal twelve times.
 
-~~~c++
+```c++
 void sendRF(int code []) {
   for (int i = 0; i < repeat; i++) {
     for (int j = 0; j < BITS; j++) {
@@ -257,7 +259,7 @@ void sendRF(int code []) {
     delayMicroseconds(pausePeriod);
   }
 }
-~~~
+```
 
 <strong>Figure 11 </strong>Fritzing schematic
 <a class="plain" href="assets/images/2017-05-08/Fan-Controller_bb.png"><img src="assets/images/2017-05-08/Fan-Controller_bb.png" alt="Fan Controller_bb" width="550" height="428" /></a>
@@ -273,6 +275,7 @@ void sendRF(int code []) {
 <a class="plain" href="assets/images/2017-05-08/webpage1.png"><img src="assets/images/2017-05-08/webpage1.png" alt="webpage" width="550" height="343" /></a>
 
 <strong>Figure 14</strong> Demo
+
 <iframe width="420" height="315" src="https://www.youtube.com/embed/-oWBbTvQUzc" frameborder="0" allowfullscreen></iframe>
 
 It works!
