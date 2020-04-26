@@ -5,21 +5,21 @@ title: Projects
 
 <h1>2017</h1>
 <p class="project">
-  <i class="fas fa-mountain"></i>
-  Bedrock
+  <i class="fas fa-vial"></i>
+  Flub
   <p>
-    Bedrock is a javascript BDD / TDD unit testing framework for Node.js. It comprises a CLI test runner/reporter,
-    assertion library and utilities including stubs and spies. &#8216;bed-rock&#8217; is available as an <a href="https://www.npmjs.com/package/bed-rock"
+    Flub is a javascript BDD / TDD unit testing framework for Node.js. It comprises a CLI test runner/reporter,
+    assertion library and utilities including stubs and spies. &#8216;flub&#8217; is available as an <a href="https://www.npmjs.com/package/flub"
       rel="nofollow">npm package</a>. Yet another javascript framework.
   </p>
   <p>
-    <strong>Npm package:</strong> <a href="https://www.npmjs.com/package/bed-rock" target="blank_">Download</a>
+    <strong>Npm package:</strong> <a href="https://www.npmjs.com/package/flub" target="blank_">Download</a>
   </p>
   <p><strong>Languages:</strong> Typescript/Javascript</p>
   <p><strong>Libraries: </strong><a href="https://nodejs.org/en/" target="_blank">Node</a>, <a href="https://webpack.js.org/"
       target="_blank">Webpack</a>, <a href="http://ramdajs.com/" target="_blank">Ramda</a>, <a href="http://esprima.org/"
       target="_blank">Esprima</a></p>
-  <p><strong>Source:</strong> <a href="https://github.com/joemaidman/bedrock" target="_blank">Github</a></p>
+  <p><strong>Source:</strong> <a href="https://github.com/joemaidman/flub" target="_blank">Github</a></p>
 </p>
 
 <p class="project">
@@ -134,7 +134,6 @@ title: Projects
       target="_blank">Bootstrap</a></p>
   <p><strong>Source:</strong> <a href="https://github.com/joeyjoeuk/crazycanary" target="_blank">Github</a></p>
 </p>
-
 
 <h1>2015</h1>
 
